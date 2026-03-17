@@ -1,0 +1,21 @@
+name: 03 Workflow Runners
+
+on:
+  push:
+
+jobs:
+  ubuntu-latest-machine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on ubuntu-latest
+        run: echo "I'm running on ubuntu-latest"
+  windows-echo-machine:
+    runs-on: windows-latest
+    steps:
+      - name: Running on windows-latest
+        run: echo "I'm running on windows-latest"
+  macos-echo-machine:
+    runs-on: macos-latest
+    steps:
+      - name: Running on macos-latest
+        run: echo "I'm running on macos-latest"
