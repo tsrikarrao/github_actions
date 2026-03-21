@@ -14,7 +14,7 @@ jobs:
         run: tree -L 2
 
       - name: Node.js setup
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v 3
         with:
           node-version: '24'
 
@@ -22,10 +22,8 @@ jobs:
         run: node -v
 
       - name: Install dependencies
-        run: cd 04-using-actions/react-app
-
-      - name: Install dependencies
         run: npm install
+        working-directory: 04-using-actions/react-app
 
       - name: Run tests
         run: npm test
