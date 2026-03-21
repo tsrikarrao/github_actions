@@ -15,6 +15,7 @@ jobs:
 
       - name: Print Folder Structure
         run: tree -L 2
+        working-directory: .
 
       - name: Node.js setup
         uses: actions/setup-node@v3
@@ -32,4 +33,3 @@ jobs:
 
       - name: Build project
         run: npm run build
-
