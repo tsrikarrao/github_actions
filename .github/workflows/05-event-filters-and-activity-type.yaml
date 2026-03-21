@@ -1,0 +1,14 @@
+name: 05 - 1 - Event Filters And Activity Types
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Event Filters And Activity Types
+        run: echo "Event Filters And Activity Types"
