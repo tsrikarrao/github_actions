@@ -22,6 +22,9 @@ jobs:
         run: node -v
 
       - name: Install dependencies
+        run: cd 04-using-actions/react-app
+
+      - name: Install dependencies
         run: npm install
 
       - name: Run tests
