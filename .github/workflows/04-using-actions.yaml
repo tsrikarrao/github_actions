@@ -1,0 +1,32 @@
+name: 04 - Using Actions
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Print Folder Structure
+        run: tree -L 2
+
+      - name: Node.js setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
+      - name: Node.js version
+        run: node -v
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build project
+        run: npm run build
+
