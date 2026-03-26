@@ -1,0 +1,24 @@
+name: 06 - Context
+run-name: 06 - Context | Debug - ${{ inputs.debug }} ${{ github.workflow }} - ${{ github.run_number }}
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Enable debug mode'
+        type: boolean
+        default: false
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: [debug] Print start-up information
+        if: ${{ inputs.debug }}
+        run: |
+          echo "Debug mode is enabled"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Run number: ${{ github.run_number }}"
+          echo "Event name: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
