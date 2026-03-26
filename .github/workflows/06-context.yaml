@@ -13,7 +13,7 @@ env:
   WORKFLOW_VAR: "This is a workflow-level variable"
   OVERRIDE_VAR: "This is a workflow-level variable"
 jobs:
-  build:
+  echo-data:
     env:
       WORKFLOW_VAR: "This is a workflow-level variable 2"
       OVERRIDE_VAR: "This is a workflow-level variable 2"
@@ -53,3 +53,12 @@ jobs:
         run: |
           echo "Override variable values:: ${{ env.OVERRIDE_VAR }}"
           echo "Workflow variable values:: ${{ env.WORKFLOW_VAR }}"
+  echo-vars:
+    runs-on: ubuntu-latest
+    needs: echo-data
+    steps:
+      - name: Display Information from Vars Context
+        run: |
+          echo "Vars Context MY_VAR: ${{ vars.MY_VAR }}"
+          echo "Vars Context WORKFLOW_VAR: ${{ vars.WORKFLOW_VAR }}"
+          echo "Vars Context OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}"
