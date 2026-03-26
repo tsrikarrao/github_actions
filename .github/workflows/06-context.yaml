@@ -23,4 +23,4 @@ jobs:
 
       - name: Variable Values
         run: |
-          echo "Variable values:: ${{ vars.MY_VARIABLE }}"
+          echo "Variable values:: ${{ vars.MY_VAR }}"
