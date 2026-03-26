@@ -9,8 +9,14 @@ on:
         type: boolean
         default: false
 
+env:
+  WORKFLOW_VAR: "This is a workflow-level variable"
+  OVERRIDE_VAR: "This is a workflow-level variable"
 jobs:
   build:
+    env:
+      WORKFLOW_VAR: "This is a workflow-level variable 2"
+      OVERRIDE_VAR: "This is a workflow-level variable 2"
     runs-on: ubuntu-latest
     steps:
       - name: Display Information from Github Context
@@ -29,3 +35,21 @@ jobs:
       - name: Variable Values
         run: |
           echo "Variable values:: ${{ vars.MY_VAR }}"
+
+      - name: Override Variable Values 1
+        run: |
+          echo "Override variable values:: ${{ env.OVERRIDE_VAR }}"
+          echo "Workflow variable values:: ${{ env.WORKFLOW_VAR }}"
+
+      - name: Override Variable Values 2
+        run: |
+          echo "Override variable values:: ${{ env.OVERRIDE_VAR }}"
+          echo "Workflow variable values:: ${{ env.WORKFLOW_VAR }}"
+
+      - name: Override Variable Values 3
+        env:
+          OVERRIDE_VAR: "This is a step-level variable 3"
+          WORKFLOW_VAR: "This is a step-level variable 3"
+        run: |
+          echo "Override variable values:: ${{ env.OVERRIDE_VAR }}"
+          echo "Workflow variable values:: ${{ env.WORKFLOW_VAR }}"
