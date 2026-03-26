@@ -23,7 +23,7 @@ jobs:
           echo "Repository: ${{ github.repository }}"
           echo "Actor: ${{ github.actor }}"
       - name: '[debug] Print trigger information'
-        if: ${{ inputs.debug && github.event_name == 'workflow_dispatch' && github.ref  != 'refs/heads/main' }}
+        if: ${{ inputs.debug && github.event_name == 'workflow_dispatch' && github.ref  == 'refs/heads/main' }}
         run: |
           echo "Triggered by event: ${{ github.event_name }}"
           echo "Event details: ${{ toJson(github.event) }}"
