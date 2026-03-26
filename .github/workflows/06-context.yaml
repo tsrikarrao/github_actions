@@ -55,10 +55,10 @@ jobs:
           echo "Workflow variable values:: ${{ env.WORKFLOW_VAR }}"
   echo-vars:
     runs-on: ubuntu-latest
-    needs: echo-data
+#    needs: echo-data
     steps:
       - name: Display Information from Vars Context
         run: |
           echo "Vars Context MY_VAR: ${{ vars.MY_VAR }}"
-          echo "Vars Context WORKFLOW_VAR: ${{ vars.WORKFLOW_VAR }}"
-          echo "Vars Context OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}"
+          echo "Vars Context WORKFLOW_VAR: ${{ env.WORKFLOW_VAR }}"
+          echo "Vars Context OVERRIDE_VAR: ${{ env.OVERRIDE_VAR }}"
